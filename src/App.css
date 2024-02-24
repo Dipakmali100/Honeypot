@@ -234,7 +234,7 @@ body {
 .header-main{
   display: flex;
   flex-direction: row;
-  gap: 40vw;
+  gap: 45vw;
 }
 
 .header-logo{
@@ -253,6 +253,10 @@ body {
   color: #000000;
   font-weight:500;
   font-size: large;
+}
+.header-menu-com:hover{
+  /* text-decoration: underline; */
+  font-weight: bold;
 }
 
 .vertical-line {
@@ -280,10 +284,14 @@ body {
   padding-top: 4vh;
   padding-left: 5vw;
 }
+
+#map{
+  margin-left: -100px;
+}
 .profile-p1-menu{
   display: flex;
   flex-direction: column;
-  padding-top: 10vh;
+  padding-top: 5vh;
   gap: 5vh;
 }
 .profile-p1-com{
@@ -336,11 +344,29 @@ body {
   text-align: center;
   margin-bottom: 7vh;
 }
-
+.refresh{
+  position: absolute;
+  top: 20%;
+  right: 10%;
+}
+.refresh button{
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  font-weight: bold;
+}
+.refresh button:hover{
+  background-color: #000000;
+  border: 1px solid #000000;
+  color: #ffffff;
+}
 .token-history-each{
   display: flex;
   flex-direction: row;
-  gap: 10vw;
+  gap: 15vw;
   justify-content: center;
   margin-bottom: 3vh;
   margin-top: 3vh;
@@ -363,6 +389,7 @@ body {
   margin-bottom: 5vh;
 }
 .token-history-moreInfo p{
-  text-decoration: none;
+  text-decoration: underline;
+  cursor: pointer;
   color: #000000;
 }

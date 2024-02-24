@@ -14,7 +14,7 @@ function Header() {
                 <div><Link to="/dashboard" className='header-menu-com'>Dashboard</Link></div>
                 <div><Link to="/token-generator" className='header-menu-com'>Token Generator</Link></div>
                 <div><Link to="/token-history" className='header-menu-com'>Token History</Link></div>
-                <div><Link to="/contact" className='header-menu-com'>Contact Us</Link></div>
+                {/* <div><Link to="/contact" className='header-menu-com'>Contact Us</Link></div> */}
                 <div><Link to="/" className='header-menu-com'>Logout</Link></div>
             </div>
         </div>
