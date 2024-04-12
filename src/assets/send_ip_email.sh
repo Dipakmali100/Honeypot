@@ -16,7 +16,8 @@ send_email() {
 # Main function
 main() {
     local ip_address=$(get_public_ip)
-    local recipient_email="malidipakb2002@gmail.com"  # Change this to the recipient's email address
+    # local recipient_email="malidipakb2002@gmail.com"  # Change this to the recipient's email address
+    local recipient_email=$(mail_id)  # Change this to the recipient's email address
 
     if [ -n "$ip_address" ]; then
         send_email "$ip_address" "$recipient_email"

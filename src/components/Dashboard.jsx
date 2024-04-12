@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header.js";
 import { Link } from "react-router-dom";
+import { ColorTypes } from "pdf-lib";
 
 function Dashboard() {
   return (
@@ -12,7 +13,7 @@ function Dashboard() {
           <div className="profile-p1-menu">
             <div className="profile-p1-com">
               <div className="com-title"> Full Name: </div>{" "}
-              <div className="com-ans"> Dipak Bapu Mali </div>{" "}
+              <div className="com-ans"> Dipak Mali </div>{" "}
             </div>{" "}
             <div className="profile-p1-com">
               <div className="com-title"> Username: </div>{" "}
@@ -24,7 +25,7 @@ function Dashboard() {
             </div>{" "}
             <div className="profile-p1-com">
               <div className="com-title"> No.Of Tokens Generated: </div>{" "}
-              <div className="com-ans"> 3 </div>{" "}
+              <div className="com-ans">{localStorage.getItem("totalToken")}</div>{" "}
             </div>{" "}
           </div>{" "}
           <div className="p1-button">
@@ -40,19 +41,19 @@ function Dashboard() {
           <div className="profile-p1-menu">
             <div className="profile-p1-com">
               <div className="com-title"> Data Secure: </div>{" "}
-              <div className="com-ans"> No </div>{" "}
+              <div className="com-ans" style={{color: 'red', fontWeight: 'bold'}}> No </div>{" "}
             </div>{" "}
             <div className="profile-p1-com">
               <div className="com-title"> PDF Tokens: </div>{" "}
-              <div className="com-ans"> 3 Tokens, 2 Secured </div>{" "}
+              <div className="com-ans"> {localStorage.getItem("totalPDF") || 3} Tokens, {localStorage.getItem("totalPDF")===null ? 2: parseInt(parseInt(localStorage.getItem("totalPDF"))/2)} Secured </div>{" "}
             </div>{" "}
             <div className="profile-p1-com">
               <div className="com-title"> DOCS Tokens: </div>{" "}
-              <div className="com-ans"> 0 Tokens, 0 Secured </div>{" "}
+              <div className="com-ans"> {localStorage.getItem("totalDOCS") || 0} Tokens, {localStorage.getItem("totalDOCS")===null ? 0: parseInt(parseInt(localStorage.getItem("totalDOCS"))/2)} Secured </div>{" "}
             </div>{" "}
             <div className="profile-p1-com">
               <div className="com-title"> EXCEL Tokens: </div>{" "}
-              <div className="com-ans"> 0 Tokens, 0 Secured </div>{" "}
+              <div className="com-ans"> {localStorage.getItem("totalXLSX") || 0} Tokens, {localStorage.getItem("totalXLSX")===null ? 0: parseInt(parseInt(localStorage.getItem("totalXLSX"))/2)} Secured </div>{" "}
             </div>{" "}
           </div>{" "}
           <div className="p2-button">
