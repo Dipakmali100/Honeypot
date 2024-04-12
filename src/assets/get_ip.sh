@@ -26,7 +26,7 @@ main() {
     local public_ip=$(get_public_ip)
     if [ -n "$public_ip" ]; then
         local location_data=$(get_location "$public_ip")
-        local mongodb_url="mongodb://username:password@host:port/database"  # Update with your MongoDB connection string
+        local mongodb_url="mongodb://dipakmali100:dipak123@host:port/database"  # Update with your MongoDB connection string
         send_to_mongodb "$mongodb_url" "$location_data"
         echo "Data sent to MongoDB:"
         echo "$location_data"
