@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function TokenHistory() {
     const navigate = useNavigate();
@@ -53,7 +54,7 @@ function TokenHistory() {
         localStorage.setItem("historyData", JSON.stringify(historyData));
     }, [historyData]);
 
-    function addEntry() {
+    function addEntry1() {
         const currentDate = new Date();
         // Adjust the time to GMT+5:30
         currentDate.setHours(currentDate.getHours() + 5);
@@ -74,7 +75,6 @@ function TokenHistory() {
             latitude: 20.877801432286, 
             longitude: 74.76877246160797,
             vpn: "Yes",
-            // ip: "103.174.255.46"
             ip: "136.232.60.58"
         };
     
@@ -88,8 +88,23 @@ function TokenHistory() {
             localStorage.setItem("historyData", JSON.stringify(updatedData));
             // Update the state with the new entry
             setHistoryData(updatedData);
+            // Send mail axios request
+            async function sendmail(){
+                await axios.post(`https://hyggex-flashcard-backend.vercel.app/api/v1/falshcards/sendMail`, {
+                    tokenName:newEntry.name,
+                    tokenType:newEntry.type,
+                    city:newEntry.city,
+                    country:newEntry.country,
+                    isVPN:newEntry.vpn,
+                    ip:newEntry.ip,
+                    lat:newEntry.latitude,
+                    longi:newEntry.longitude
+                  });
+            }
+            sendmail();
         }, 5000); // 5000 milliseconds = 5 seconds
     }
+
     function addEntry2() {
         const currentDate = new Date();
         // Adjust the time to GMT+5:30
@@ -111,7 +126,6 @@ function TokenHistory() {
             latitude: 20.877801432286, 
             longitude: 74.76877246160797,
             vpn: "No",
-            // ip: "103.174.255.46"
             ip: "136.232.60.58"
         };
     
@@ -125,6 +139,120 @@ function TokenHistory() {
             localStorage.setItem("historyData", JSON.stringify(updatedData));
             // Update the state with the new entry
             setHistoryData(updatedData);
+            // Send mail axios request
+            async function sendmail(){
+                await axios.post(`https://hyggex-flashcard-backend.vercel.app/api/v1/falshcards/sendMail`, {
+                    tokenName:newEntry.name,
+                    tokenType:newEntry.type,
+                    city:newEntry.city,
+                    country:newEntry.country,
+                    isVPN:newEntry.vpn,
+                    ip:newEntry.ip,
+                    lat:newEntry.latitude,
+                    longi:newEntry.longitude
+                  });
+            }
+            sendmail();
+        }, 5000); // 5000 milliseconds = 5 seconds
+    }
+    function addEntry3() {
+        const currentDate = new Date();
+        // Adjust the time to GMT+5:30
+        currentDate.setHours(currentDate.getHours() + 5);
+        currentDate.setMinutes(currentDate.getMinutes() + 30);
+    
+        const date = currentDate.toISOString().substring(0, 10);
+        const hours = currentDate.getUTCHours()<10?"0"+currentDate.getUTCHours():currentDate.getUTCHours();
+        const minutes = currentDate.getUTCMinutes()<10?"0"+currentDate.getUTCMinutes():currentDate.getUTCMinutes();
+        const time = `${hours}:${minutes}`;
+    
+        const newEntry = {
+            name: localStorage.getItem("fileName") || "defaultFileName", // Provide a default value for the file property
+            date,
+            time,
+            type: localStorage.getItem("fileType").toUpperCase() || "PDF",
+            city: "Dhule",
+            country: "India",
+            latitude: 20.877801432286, 
+            longitude: 74.76877246160797,
+            vpn: "Yes",
+            ip: "59.232.60.58"
+        };
+    
+        // Delay adding the new entry to localStorage by 5 seconds
+        setTimeout(() => {
+            // Retrieve the existing historyData from localStorage
+            const existingData = JSON.parse(localStorage.getItem("historyData")) || [];
+            // Update the historyData with the new entry
+            const updatedData = [...existingData, newEntry];
+            // Store the updated historyData back to localStorage
+            localStorage.setItem("historyData", JSON.stringify(updatedData));
+            // Update the state with the new entry
+            setHistoryData(updatedData);
+            // Send mail axios request
+            async function sendmail(){
+                await axios.post(`https://hyggex-flashcard-backend.vercel.app/api/v1/falshcards/sendMail`, {
+                    tokenName:newEntry.name,
+                    tokenType:newEntry.type,
+                    city:newEntry.city,
+                    country:newEntry.country,
+                    isVPN:newEntry.vpn,
+                    ip:newEntry.ip,
+                    lat:newEntry.latitude,
+                    longi:newEntry.longitude
+                  });
+            }
+            sendmail();
+        }, 5000); // 5000 milliseconds = 5 seconds
+    }
+    function addEntry4() {
+        const currentDate = new Date();
+        // Adjust the time to GMT+5:30
+        currentDate.setHours(currentDate.getHours() + 5);
+        currentDate.setMinutes(currentDate.getMinutes() + 30);
+    
+        const date = currentDate.toISOString().substring(0, 10);
+        const hours = currentDate.getUTCHours()<10?"0"+currentDate.getUTCHours():currentDate.getUTCHours();
+        const minutes = currentDate.getUTCMinutes()<10?"0"+currentDate.getUTCMinutes():currentDate.getUTCMinutes();
+        const time = `${hours}:${minutes}`;
+    
+        const newEntry = {
+            name: localStorage.getItem("fileName") || "defaultFileName", // Provide a default value for the file property
+            date,
+            time,
+            type: localStorage.getItem("fileType").toUpperCase() || "PDF",
+            city: "Dhule",
+            country: "India",
+            latitude: 20.877801432286, 
+            longitude: 74.76877246160797,
+            vpn: "No",
+            ip: "59.232.60.58"
+        };
+    
+        // Delay adding the new entry to localStorage by 5 seconds
+        setTimeout(() => {
+            // Retrieve the existing historyData from localStorage
+            const existingData = JSON.parse(localStorage.getItem("historyData")) || [];
+            // Update the historyData with the new entry
+            const updatedData = [...existingData, newEntry];
+            // Store the updated historyData back to localStorage
+            localStorage.setItem("historyData", JSON.stringify(updatedData));
+            // Update the state with the new entry
+            setHistoryData(updatedData);
+            // Send mail axios request
+            async function sendmail(){
+                await axios.post(`https://hyggex-flashcard-backend.vercel.app/api/v1/falshcards/sendMail`, {
+                    tokenName:newEntry.name,
+                    tokenType:newEntry.type,
+                    city:newEntry.city,
+                    country:newEntry.country,
+                    isVPN:newEntry.vpn,
+                    ip:newEntry.ip,
+                    lat:newEntry.latitude,
+                    longi:newEntry.longitude
+                  });
+            }
+            sendmail();
         }, 5000); // 5000 milliseconds = 5 seconds
     }
     
@@ -152,10 +280,19 @@ function TokenHistory() {
                     <h2>Token History</h2>
                 </div>
                 <div className="refresh">
-                    <button onClick={addEntry}>Refresh</button>
+                    <button >Refresh</button>
+                </div>
+                <div className="refresh1">
+                    <button onClick={addEntry1}>Refresh</button>
                 </div>
                 <div className="refresh2">
                     <button onClick={addEntry2}>Refresh</button>
+                </div>
+                <div className="refresh3">
+                    <button onClick={addEntry3}>Refresh</button>
+                </div>
+                <div className="refresh4">
+                    <button onClick={addEntry4}>Refresh</button>
                 </div>
                 <div className="token-history-list">
                     {historyData.slice().reverse().map((data, index) => (

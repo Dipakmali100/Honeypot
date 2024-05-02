@@ -12,7 +12,7 @@ function Dashboard() {
           <div className="profile-p1-header"> PROFILE INFO </div>{" "}
           <div className="profile-p1-menu">
             <div className="profile-p1-com">
-              <div className="com-title"> Full Name: </div>{" "}
+              <div className="com-title"> Admin Name: </div>{" "}
               <div className="com-ans"> Dipak Mali </div>{" "}
             </div>{" "}
             <div className="profile-p1-com">
@@ -25,7 +25,7 @@ function Dashboard() {
             </div>{" "}
             <div className="profile-p1-com">
               <div className="com-title"> No.Of Tokens Generated: </div>{" "}
-              <div className="com-ans">{localStorage.getItem("totalToken")}</div>{" "}
+              <div className="com-ans">{localStorage.getItem("totalToken") || 3}</div>{" "}
             </div>{" "}
           </div>{" "}
           <div className="p1-button">

@@ -54,21 +54,6 @@ function Registration() {
               />
             </div>
             <div>
-              <label for="phone" className="formbold-form-label">
-                {" "}
-                Email Password{" "}
-              </label>
-              <input
-                type="password"
-                name="phone"
-                id="phone"
-                className="formbold-form-input"
-              />
-            </div>
-          </div>
-
-          <div className="formbold-input-flex">
-            <div>
               <label for="state" className="formbold-form-label">
                 {" "}
                 Phone number{" "}
@@ -80,6 +65,10 @@ function Registration() {
                 className="formbold-form-input"
               />
             </div>
+          </div>
+
+          {/* <div className="formbold-input-flex">
+            
             <div>
               <label for="country" className="formbold-form-label">
                 {" "}
@@ -92,7 +81,7 @@ function Registration() {
                 className="formbold-form-input"
               />
             </div>
-          </div>
+          </div> */}
 
           <div className="formbold-mb-3">
             <label for="purpose" className="formbold-form-label">
@@ -101,8 +90,9 @@ function Registration() {
             <select name="purpose" id="purpose" className="formbold-form-input">
               <option value="">Select a purpose</option>
               <option value="Option 1">Securing Mobile Data</option>
-              <option value="Option 2">Securing website Data</option>
+              <option value="Option 2">Securing Website Data</option>
               <option value="Option 3">Securing Organization Data</option>
+              <option value="Option 4">Securing Personal Data</option>
             </select>
           </div>
 
